@@ -11,6 +11,7 @@ requests = "*"
 django-s3-folder-storage = "*"
 python-decouple = "*"
 dj-database-url = "*"
+collectfast = "*"
 
 [dev-packages]
 
