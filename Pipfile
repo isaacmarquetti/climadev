@@ -8,6 +8,8 @@ pytest-django = "*"
 gunicorn = "*"
 django = "*"
 requests = "*"
+django-s3-folder-storage = "*"
+python-decouple = "*"
 
 [dev-packages]
 
