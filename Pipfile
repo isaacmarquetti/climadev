@@ -12,6 +12,7 @@ django-s3-folder-storage = "*"
 python-decouple = "*"
 dj-database-url = "*"
 collectfast = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
