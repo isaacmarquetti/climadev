@@ -32,103 +32,93 @@
 </nav>
 <!-- Page content-->
 <br>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-
-        </div>
-        <div class="col-sm-4">
-            <form method="get" action="{% url 'busca' %}">
-                <div class="card mb-4">
-                    <div class="card-header">Nome da cidade:</div>
-                    <div class="card-body">
-                        <div class="input-group">
-                            <input class="form-control"
-                                   type="search" value=" {{ request.GET.cidade }}"
-                                   placeholder="Digite o nome da cidade"
-                                   name="cidade">
-
-                        </div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-3">
+        <form method="get" action="{% url 'busca' %}">
+            <div class="card mb-3">
+                <div class="card-header">Nome da cidade:</div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <input class="form-control"
+                               type="search" value=" {{ request.GET.cidade }}"
+                               placeholder="Digite o nome da cidade"
+                               name="cidade">
                     </div>
                 </div>
-            </form>
-        </div>
+
+            </div>
+        </form>
     </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
+    <div class="col-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <h6><span class="badge bg-primary">TEMPERATURA</span></h6>
+                    <h1><span class="badge bg-primary">{{temp}}</span></h1>
+                </div>
+                <div class="col">
+                    <div class="col-sm">
+                        <img src="{{icon}}">
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
         </div>
-        <div class="col-sm">
-            <h1><span class="badge bg-info">{{local}}</span></h1>
-        </div>
-        <div class="col-sm">
-        </div>
-        <div class="col-sm">
-        </div>
-        <div class="col-sm">
-        </div>
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
 
     </div>
-    <div class="row">
-        <div class="col-sm-4">
-        </div>
-        <div class="col-sm">
-            <h6><span class="badge bg-primary">TEMPERATURA</span></h6>
-            <h1><span class="badge bg-primary">{{temp}}</span></h1>
-        </div>
-        <div class="col-sm">
-            <h6><span class="badge bg-secondary">TEMP. MAX</span></h6>
-            <h4><span class="badge bg-secondary">{{temp_max}}</span></h4>
-        </div>
-        <div class="col-sm">
-            <h6><span class="badge bg-secondary">TEMP. MIN</span></h6>
-            <h4><span class="badge bg-secondary">{{temp_min}}</span></h4>
-        </div>
-        <div class="col-sm">
-            <img src="{{icon}}">
-        </div>
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
-        <div class="col-sm"></div>
-
-    </div>
-    <div class="row">
-    </div>
+    <div class="col-3"></div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-        </div>
-        <div class="col-sm-1 align-self-start">
-            <h5><span class="badge bg-light text-dark">
-                SENS. TÉRMICA: {{sensacao}}
-            </span></h5>
-        </div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-3">
+        <table class="table table-striped ">
+                <thead>
+                <tr>
+                    <th scope="col">Dados da Cidade</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">Cidade</th>
+                    <td>{{nome}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Estado</th>
+                    <td>{{estado}}</td>
+                </tr>
+                </tbody>
+            </table>
     </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-        </div>
-        <div class="col-sm-1 align-self-start">
-            <h5><span class="badge bg-light text-dark">
-                CONDIÇÃO: {{condicao}}
-            </span></h5>
-        </div>
+    <div class="col-3">
+        <table class="table table-striped ">
+                <thead>
+                <tr>
+                    <th scope="col">Dados Climáticos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">Temp. Máxima</th>
+                    <td>{{temp_max}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Temp. Mínima</th>
+                    <td>{{temp_min}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Sens. Térmica</th>
+                    <td>{{sensacao}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Condição</th>
+                    <td>{{condicao}}</td>
+                </tr>
+                </tbody>
+            </table>
     </div>
+    <div class="col-3"></div>
 </div>
-
-
 <!-- Footer-->
 <footer class="py-5 bg-dark">
     <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
