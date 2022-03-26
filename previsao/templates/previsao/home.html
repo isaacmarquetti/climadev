@@ -41,19 +41,28 @@
                 <div class="card-body">
                     <div class="input-group">
                         <input class="form-control"
-                               type="search" value=" {{ request.GET.cidade }}"
+                               type="search" value="{{request.GET.cidade}}"
                                placeholder="Digite o nome da cidade"
                                name="cidade">
                     </div>
+                    {% if messages %}
+                    <br>
+                    {% for message in messages %}
+                    <div class="alert {{ message.tags }}" role="alert">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
                 </div>
-
             </div>
         </form>
+
     </div>
     <div class="col-3">
         <div class="container">
             <div class="row">
                 <div class="col-sm">
+
                     <h6><span class="badge bg-primary">TEMPERATURA</span></h6>
                     <h1><span class="badge bg-primary">{{temp}}</span></h1>
                 </div>
