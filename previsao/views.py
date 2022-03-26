@@ -27,16 +27,30 @@ def busca(request):
     resposta = requests.get(url).json()
     resposta_city = requests.get(url_city).json()
 
+    print(url_city)
+
+    if resposta_city[0]['country'] != 'BR':
+        lat = resposta_city[1]['lat']
+        lon = resposta_city[1]['lon']
+        link = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric&lang=pt_br"
+    else:
+        lat = resposta_city[0]['lat']
+        lon = resposta_city[0]['lon']
+        link = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric&lang=pt_br"
+
+    resposta_link = requests.get(link).json()
+
     try:
-        temp = resposta['main']['temp']
+        temp = resposta_link['main']['temp']
         pais = resposta['sys']['country']
-        temp_max = resposta['main']['temp_max']
-        temp_min = resposta['main']['temp_min']
-        sensacao = resposta['main']['feels_like']
-        condicao = resposta['weather'][0]['description']
-        icon = resposta['weather'][0]['icon']
+        temp_max = resposta_link['main']['temp_max']
+        temp_min = resposta_link['main']['temp_min']
+        sensacao = resposta_link['main']['feels_like']
+        condicao = resposta_link['weather'][0]['description']
+        icon = resposta_link['weather'][0]['icon']
         foto = f'http://openweathermap.org/img/wn/{icon}@2x.png'
         nome = resposta_city[0]['name']
+        estado = resposta_link['name']
     except (IndexError, KeyError) as erro:
         messages.add_message(request, messages.ERROR, f'Não existe a cidade "{cidade}"')
         return redirect('home')
@@ -48,7 +62,11 @@ def busca(request):
 
     state = resposta_city[0].get('state', "Sem Estado")
 
+    if resposta_city[0]['country'] != 'BR':
+        state = resposta_city[1].get('state')
+
     return render(request, 'previsao/home.html', {
+        'estado2': estado,
         'nome': nome,
         'estado': state,
         'local': f'{cidade}, {pais}',
