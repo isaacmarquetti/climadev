@@ -27,20 +27,17 @@ def busca(request):
     resposta = requests.get(url).json()
     resposta_city = requests.get(url_city).json()
 
-    print(url_city)
-
-    if resposta_city[0]['country'] != 'BR':
-        lat = resposta_city[1]['lat']
-        lon = resposta_city[1]['lon']
-        link = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric&lang=pt_br"
-    else:
-        lat = resposta_city[0]['lat']
-        lon = resposta_city[0]['lon']
-        link = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric&lang=pt_br"
-
-    resposta_link = requests.get(link).json()
-
     try:
+        if resposta_city[0]['country'] != 'BR':
+            lat = resposta_city[1]['lat']
+            lon = resposta_city[1]['lon']
+            link = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric&lang=pt_br"
+        else:
+            lat = resposta_city[0]['lat']
+            lon = resposta_city[0]['lon']
+            link = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric&lang=pt_br"
+
+        resposta_link = requests.get(link).json()
         temp = resposta_link['main']['temp']
         pais = resposta['sys']['country']
         temp_max = resposta_link['main']['temp_max']
@@ -51,6 +48,7 @@ def busca(request):
         foto = f'http://openweathermap.org/img/wn/{icon}@2x.png'
         nome = resposta_city[0]['name']
         estado = resposta_link['name']
+
     except (IndexError, KeyError) as erro:
         messages.add_message(request, messages.ERROR, f'Não existe a cidade "{cidade}"')
         return redirect('home')
