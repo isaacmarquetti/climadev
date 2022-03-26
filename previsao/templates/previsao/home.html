@@ -35,8 +35,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-warning"></nav>
 <!-- Page content-->
 <br>
+<div class="container">
 <div class="row">
-    <div class="col-2"></div>
+    <div class="col-1"></div>
     <div class="col">
         <form method="get" action="{% url 'busca' %}">
             <div class="card mb-3 font size=-1">
@@ -60,7 +61,7 @@
             </div>
         </form>
     </div>
-    <div class="col-2"></div>
+    <div class="col-1"></div>
 </div>
 <div class="row">
     <div class="col-3"></div>
@@ -79,8 +80,8 @@
 </div>
 
 <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
+    <div class="col-1"></div>
+    <div class="col">
         <table class="table table-striped ">
                 <thead>
                 <tr>
@@ -99,39 +100,40 @@
                 </tbody>
             </table>
     </div>
-    <div class="col-2"></div>
+    <div class="col-1"></div>
 </div>
 
 <div class="row">
     <div class="col-1"></div>
-    <div class="col-10">
+    <div class="col">
         <table class="table table-striped ">
             <thead>
             <tr>
-                <th scope="col">Dados Climáticos</th>
+                <th scope="col" style="font-size: 14px">Dados Climáticos</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <th scope="row">Temp. Máxima</th>
-                <td>{{temp_max}}</td>
+                <th scope="row" style="font-size: 14px">Temp. Máxima</th>
+                <td style="font-size: 14px">{{temp_max}}</td>
             </tr>
             <tr>
-                <th scope="row">Temp. Mínima</th>
-                <td>{{temp_min}}</td>
+                <th scope="row" style="font-size: 14px">Temp. Mínima</th>
+                <td style="font-size: 14px">{{temp_min}}</td>
             </tr>
             <tr>
-                <th scope="row">Sens. Térmica</th>
-                <td>{{sensacao}}</td>
+                <th scope="row" style="font-size: 14px">Sens. Térmica</th>
+                <td style="font-size: 14px">{{sensacao}}</td>
             </tr>
             <tr>
-                <th scope="row">Condição</th>
-                <td>{{condicao}}</td>
+                <th scope="row" style="font-size: 14px">Condição</th>
+                <td style="font-size: 14px">{{condicao}}</td>
             </tr>
             </tbody>
         </table>
     </div>
     <div class="col-1"></div>
+</div>
 </div>
 <!-- Footer-->
 <footer class="py-5 bg-dark">
