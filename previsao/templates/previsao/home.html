@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <title>Blog Post - Start Bootstrap Template</title>
+    <title>Consulta Clima-DEV</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico'%}"/>
     <!-- Core theme CSS (includes Bootstrap)-->
@@ -16,7 +16,9 @@
 <!-- Responsive navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#!">Consulta Clima DEV</a>
+        <a class="navbar-brand" href="#!">
+            <h3><b>CONSULTA CLIMA-DEV</b></h3>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
                 class="navbar-toggler-icon"></span></button>
@@ -30,14 +32,15 @@
         </div>
     </div>
 </nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-warning"></nav>
 <!-- Page content-->
 <br>
 <div class="row">
-    <div class="col-1"></div>
-    <div class="col-3">
+    <div class="col-2"></div>
+    <div class="col">
         <form method="get" action="{% url 'busca' %}">
-            <div class="card mb-3">
-                <div class="card-header">Nome da cidade:</div>
+            <div class="card mb-3 font size=-1">
+                <div class="card-header" style="font-size: 14px"><b>Nome da cidade:</b></div>
                 <div class="card-body">
                     <div class="input-group">
                         <input class="form-control"
@@ -56,81 +59,86 @@
                 </div>
             </div>
         </form>
-
+    </div>
+    <div class="col-2"></div>
+</div>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-3">
+        <div class="col-sm">
+            <h6><span class="badge bg-warning text-dark">TEMPERATURA</span></h6>
+            <h1><span class="badge bg-warning text-dark" style="font-size: 26px">{{temp}}</span></h1>
+        </div>
     </div>
     <div class="col-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm">
-
-                    <h6><span class="badge bg-primary">TEMPERATURA</span></h6>
-                    <h1><span class="badge bg-primary">{{temp}}</span></h1>
-                </div>
-                <div class="col">
-                    <div class="col-sm">
-                        <img src="{{icon}}">
-                    </div>
-                </div>
-                <div class="col"></div>
-            </div>
+        <div class="col-sm">
+            <img src="{{icon}}">
         </div>
-
     </div>
     <div class="col-3"></div>
 </div>
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <table class="table table-striped ">
+                <thead>
+                <tr>
+                    <th scope="col" style="font-size: 14px">Dados da Cidade</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row" style="font-size: 14px">Cidade</th>
+                    <td style="font-size: 14px">{{nome}}</td>
+                </tr>
+                <tr>
+                    <th scope="row" style="font-size: 14px">Estado</th>
+                    <td style="font-size: 14px">{{estado}}</td>
+                </tr>
+                </tbody>
+            </table>
+    </div>
+    <div class="col-2"></div>
+</div>
+
 <div class="row">
     <div class="col-1"></div>
-    <div class="col-3">
+    <div class="col-10">
         <table class="table table-striped ">
-                <thead>
-                <tr>
-                    <th scope="col">Dados da Cidade</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">Cidade</th>
-                    <td>{{nome}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Estado</th>
-                    <td>{{estado}}</td>
-                </tr>
-                </tbody>
-            </table>
+            <thead>
+            <tr>
+                <th scope="col">Dados Climáticos</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">Temp. Máxima</th>
+                <td>{{temp_max}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Temp. Mínima</th>
+                <td>{{temp_min}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Sens. Térmica</th>
+                <td>{{sensacao}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Condição</th>
+                <td>{{condicao}}</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="col-3">
-        <table class="table table-striped ">
-                <thead>
-                <tr>
-                    <th scope="col">Dados Climáticos</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">Temp. Máxima</th>
-                    <td>{{temp_max}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Temp. Mínima</th>
-                    <td>{{temp_min}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Sens. Térmica</th>
-                    <td>{{sensacao}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Condição</th>
-                    <td>{{condicao}}</td>
-                </tr>
-                </tbody>
-            </table>
-    </div>
-    <div class="col-3"></div>
+    <div class="col-1"></div>
 </div>
 <!-- Footer-->
 <footer class="py-5 bg-dark">
     <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
+</footer>
+<footer class="py-1 bg-warning">
+    <div class="container"><p class="m-0 text-center text-white"></p></div>
 </footer>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
