@@ -37,14 +37,14 @@ def busca(request):
         icon = resposta['weather'][0]['icon']
         foto = f'http://openweathermap.org/img/wn/{icon}@2x.png'
         nome = resposta_city[0]['name']
-    except IndexError as erro:
+    except (IndexError, KeyError) as erro:
         messages.add_message(request, messages.ERROR, f'Não existe a cidade "{cidade}"')
         return redirect('home')
 
-    except KeyError as erro:
+    """except KeyError as erro:
         messages.add_message(request, messages.ERROR, f'Não encontrada a cidade "{cidade}"')
         messages.add_message(request, messages.ERROR, f'Dica: Use acentuação')
-        return redirect('home')
+        return redirect('home')"""
 
     state = resposta_city[0].get('state', "Sem Estado")
 
