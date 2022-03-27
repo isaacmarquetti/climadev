@@ -16,7 +16,7 @@ def busca(request):
         messages.add_message(
             request,
             messages.ERROR,
-            'Campo termo não pode ficar vazio'
+            'Campo "nome da cidade" não pode ficar vazio'
         )
         return redirect('home')
 
@@ -38,6 +38,7 @@ def busca(request):
             link = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric&lang=pt_br"
 
         resposta_link = requests.get(link).json()
+
         temp = resposta_link['main']['temp']
         pais = resposta['sys']['country']
         temp_max = resposta_link['main']['temp_max']
@@ -60,8 +61,11 @@ def busca(request):
 
     state = resposta_city[0].get('state', "Sem Estado")
 
-    if resposta_city[0]['country'] != 'BR':
+    if resposta_city[0]['country'] != 'BR' and resposta_city[1]['country'] == 'BR':
         state = resposta_city[1].get('state')
+
+    """if resposta_city[0]['country'] != 'BR':
+        state = resposta_city[1].get('state')"""
 
     return render(request, 'previsao/home.html', {
         'estado2': estado,
