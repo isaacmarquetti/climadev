@@ -1,0 +1,70 @@
+{% extends 'previsao/base.html' %}
+{% load static %}
+{% block conteudo %}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet" xmlns="http://www.w3.org/1999/html">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="container">
+    <div class="row">
+        <div class="col align-self-start">
+        </div>
+        <div class="col-6 align-self-center text-light" align="center" style="font-size: 14px">
+            <img src="{% static 'img/fotoeu.png' %}" alt="Image" height="150" width="150">
+        </div>
+        <div class="col align-self-end">
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-8">
+            <table class="table" >
+                <tbody>
+                <tr>
+                    <td style="font-size: 18px" align="center"><b>Isaac Marquetti</b></td>
+                </tr>
+                </tbody>
+                <tbody>
+                <tr>
+                    <td style="font-size: 14px" align="center">Desenvolvedor Back-end | Python | Django</td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="table" >
+                <tbody>
+                <tr>
+                    <td style="font-size: 18px" align="center">Projeto desenvolvido com intuíto de coletar
+                    dados climáticos direto de uma API</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-4 align-self-start"></div>
+        <div class="col-2 align-self-center" style="font-size: 18px" align="left">
+            <a href="https://www.linkedin.com/in/isaac-marquetti-6298a773/">
+                <i class="fa fa-linkedin-square" style="font-size:36px;color:black"></i>
+            </a>
+        </div>
+        <div class="col-2 align-self-start" style="font-size: 18px" align="right">
+            <a href="https://github.com/isaacmarquetti">
+                <i class="fa fa-github" style="font-size:36px;color:black"></i>
+            </a>
+        </div>
+        <div class="col-4 align-self-end"></div>
+    </div>
+</div>
+
+
+{% endblock conteudo %}

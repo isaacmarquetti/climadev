@@ -5,7 +5,7 @@ from climaapi.django_assertions import assert_contains
 
 @pytest.fixture
 def resp(client):
-    return client.get(reverse('previsao:home'))
+    return client.get(reverse('home'))
 
 
 def test_status_code(resp):
@@ -17,6 +17,6 @@ def test_example():
 
 
 def test_title(resp):
-    assert_contains(resp, '<title>Meu Clima</title>')
+    assert_contains(resp, '<title>Consulta Clima-DEV</title>')
 
 
